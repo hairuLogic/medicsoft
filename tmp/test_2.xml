@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<data>
+  <parent>
+    <Peter>35</Peter>
+    <Ben>37</Ben>
+    <Joe>43</Joe>
+  </parent>
+</data>

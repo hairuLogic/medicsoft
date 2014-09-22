@@ -1,0 +1,83 @@
+<?php
+	include_once('../sschecker.php');
+	include_once('../connect_db.php');
+	$compid=$_SESSION['company'];
+	$mrn=$_POST['mrn'];
+	$json=array();
+	$sql = "select 
+				Name,
+				Newic,
+				Oldic,
+				idnumber,
+				TitleCode,
+				Address1,Address2,Address3,Postcode,
+				OffAdd1,OffAdd2,OffAdd3,OffAdd4,
+				pAdd1,pAdd2,pAdd3,pPostCode,
+				Postcode,
+				DOB,
+				areacode,
+				Citizencode,
+				MaritalCode,
+				RaceCode,
+				Religion,
+				Sex,
+				bloodgrp,
+				LanguageCode,
+				telh,
+				telhp,
+				telo,
+				OccupCode,
+				CorpComp,
+				Email,
+				RelateCode,
+				Staffid,
+				ChildNo,
+				Active,
+				Confidential,
+				MRFolder,
+				OldMrn,
+				PatStatus
+			from patmast where MRN=$mrn and CompCode='$compid'";
+	$res=mysql_query($sql);
+	$row=mysql_fetch_assoc($res);
+	
+	$tok=explode('-',$row['DOB']);
+	$newdob=$tok[2].'-'.$tok[1].'-'.$tok[0];
+	if($row['Active']==1){$activenew='Yes';}else{$activenew='No';}
+	if($row['Confidential']==1){$confidentialnew='Yes';}else{$confidentialnew='No';}
+	if($row['MRFolder']==1){$MRecordnew='Yes';}else{$MRecordnew='No';}
+	
+	$json['name']=$row['Name'];
+	$json['newic']=$row['Newic'];
+	$json['oldic']=$row['Oldic'];
+	$json['othno']=$row['idnumber'];
+	$json['title']=$row['TitleCode'];
+	$json['curaddr1']=$row['Address1'];$json['curaddr2']=$row['Address2'];$json['curaddr3']=$row['Address3'];$json['postcode']=$row['Postcode'];
+	$json['offaddr1']=$row['OffAdd1'];$json['offaddr2']=$row['OffAdd2'];$json['offaddr3']=$row['OffAdd3'];$json['postcode2']=$row['OffAdd4'];
+	$json['peraddr1']=$row['pAdd1'];$json['peraddr2']=$row['pAdd2'];$json['peraddr3']=$row['pAdd3'];$json['postcode3']=$row['pPostCode'];
+	$json['dob']=$newdob;
+	$json['areacode']=$row['areacode'];
+	$json['citizen']=$row['Citizencode'];
+	$json['marital']=$row['MaritalCode'];
+	$json['race']=$row['RaceCode'];
+	$json['religion']=$row['Religion'];
+	$json['sex']=$row['Sex'];
+	$json['bloodgroup']=$row['bloodgrp'];
+	$json['language']=$row['LanguageCode'];
+	$json['house']=$row['telh'];
+	$json['hp']=$row['telhp'];
+	$json['telo']=$row['telo'];
+	$json['occupation']=$row['OccupCode'];
+	$json['company']=$row['CorpComp'];
+	$json['email']=$row['Email'];
+	$json['relcode']=$row['RelateCode'];
+	$json['staffid']=$row['Staffid'];
+	$json['chno']=$row['ChildNo'];
+	$json['active']=$activenew;
+	$json['confidential']=$confidentialnew;
+	$json['MRecord']=$MRecordnew;
+	$json['oldmrn']=$row['OldMrn'];
+	$json['fstatus']=$row['PatStatus'];
+
+echo json_encode($json);
+?>

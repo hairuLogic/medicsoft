@@ -1,0 +1,54 @@
+#tree{
+    vertical-align: top;
+	line-height: 1.5em;
+}
+/* START TREE MENU */
+#treeMenu li{
+    border-left: 1px solid #FF7300;
+    padding:0 0 5px 10px;
+    color:#000;
+}
+#treeMenu li [class^="contentContainer"]  {
+    background:url('img/icon/right.png ') no-repeat -3px 6px;
+    color: #4545F7;
+    cursor: pointer;
+}
+
+#treeMenu li [class^="contentViewing"] {
+    background:url('img/icon/down.png ') no-repeat -4px 6px;
+    color: #4545F7;
+    cursor: pointer;
+}
+#treeMenu li.contentContainerMain  {
+    background:url('img/icon/right.png ') no-repeat -3px 6px;
+    color: #4545F7;
+    cursor: pointer;
+}
+
+#treeMenu li.contentViewingMain {
+    background:url('img/icon/down.png ') no-repeat -4px 6px;
+    color: #4545F7;
+    cursor: pointer;    
+}
+#treeMenu li{cursor: pointer;}
+
+.contentContainer ul, .contentViewing ul, .contentContainerMain ul, .contentViewingMain ul {
+    color:#FFFC00;
+    margin:5px 0 0 5px;
+
+}
+#treeBody{    
+    height: 400px;
+    overflow-y: auto;
+}
+
+.divTree{
+    margin-top:1%;
+    margin-bottom:1%;
+    width: 400px;
+    margin-top: 0px;
+}
+
+.notClicked {background-color:transparent}
+.Clicked { background-color: lightblue}
+li div{width: 100%;}

@@ -1,0 +1,563 @@
+@charset "utf-8";
+html, body, #doc, #page-outer {
+    height: 100%;
+    min-height: 100%;
+}
+body, button, input, label, select, td, textarea {
+    font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+    font-size: 13px;    
+}
+body {
+    background-image: url(/medicsoft/img/pbg.png);
+    background-color: #C0DEED;
+    color: #333;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    direction: ltr;
+	background-attachment: fixed;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: 13px;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    color:#FF7300;
+    font-size: 14px;
+}
+h4 {
+    color: #bbb;
+    margin: 12px;
+}
+input:focus{
+    background:url(css/jquery-ui-1.10.3.custom/css/custom-theme/images/ui-bg_glass_85_dfeffc_1x400.png) 50% 50% repeat-x;    
+}
+.ui-jqgrid .ui-jqgrid-view{
+    font-size: 13px;
+}
+/*SIDE BAR MENU*/
+.panelIndex {
+    float:left;
+    background: #000000;
+    border:1px solid #111111;
+    -moz-border-radius-topright: 20px;
+    -webkit-border-top-right-radius: 20px;
+    -moz-border-radius-bottomright: 20px;
+    -webkit-border-bottom-right-radius: 20px;
+    width: 200px;
+    min-height:500px;
+    height: auto;
+    padding: 10px 30px 30px 10px;
+    opacity: .80;
+}
+.panel {
+    z-index: 2;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    display: none;
+    background: #000000;
+    border:1px solid #111111;
+    -moz-border-radius-topright: 20px;
+    -webkit-border-top-right-radius: 20px;
+    -moz-border-radius-bottomright: 20px;
+    -webkit-border-bottom-right-radius: 20px;
+    width: 210px;
+    min-height:500px;
+    padding: 30px 0px 30px 110px;
+    filter: alpha(opacity=85);
+    opacity: .85;
+}
+a.trigger{
+    z-index: 2;
+position: fixed;
+text-decoration: none;
+top: 70px; left: 0;
+font-size: 16px;
+letter-spacing:-1px;
+font-family: verdana, helvetica, arial, sans-serif;
+color:#fff;
+padding: 10px 30px 10px 5px;
+font-weight: 700;
+background:rgba(0, 0, 0, 0.6) url(img/plus.png) 85% 55% no-repeat;
+border:1px solid #444444;
+-moz-border-radius-topright: 20px;
+-webkit-border-top-right-radius: 20px;
+-moz-border-radius-bottomright: 20px;
+-webkit-border-bottom-right-radius: 20px;
+-moz-border-radius-bottomleft: 0px;
+-webkit-border-bottom-left-radius: 0px;
+display: block;
+}
+
+a.trigger:hover{
+position: fixed;
+z-index: 2;
+text-decoration: none;
+top: 60px; left: 0;
+font-size: 16px;
+letter-spacing:-1px;
+font-family: verdana, helvetica, arial, sans-serif;
+color:#fff;
+padding: 20px 40px 20px 20px;
+font-weight: 700;
+background:#222222 url(img/plus.png) 85% 55% no-repeat;
+border:1px solid #444444;
+-moz-border-radius-topright: 20px;
+-webkit-border-top-right-radius: 20px;
+-moz-border-radius-bottomright: 20px;
+-webkit-border-bottom-right-radius: 20px;
+-moz-border-radius-bottomleft: 0px;
+-webkit-border-bottom-left-radius: 0px;
+display: block;
+}
+a.active.trigger {
+    
+    z-index: 2;
+background:#222222 url(img/minus.png) 85% 55% no-repeat;
+}
+#tree a{
+    color:#EBEBEB;    
+}
+/*MAIN BODY*/
+#page-outer {
+    height: 100%;
+}
+.wrapper.white {
+    background: url(/medicsoft/img/icon/white.png);
+}
+.wrapper {
+    padding-bottom: 0;
+}
+.wrapper{
+    position: relative;
+    width: 95%;
+    min-height: 100%;
+    padding: 45px 0 15px;
+    margin: 0 auto;
+}
+.content-header{
+    border: 1px solid #eee;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 6px 6px 0 0;
+    background-clip: padding-box;
+    border-bottom-width: 0;
+    opacity: .90;
+}
+#pageHeader, #bar #pageHeader {
+line-height: 1.25;
+}
+.content-header .header-inner {
+    min-height: 20px;
+    padding: 12px;
+	
+    background-color: rgb(233,238,252);
+    border-bottom: 1px solid #e8e8e8;
+    border-radius: 5px 5px 0 0;
+}
+.content-header-new{
+    border: 1px solid #eee;
+	border: 1px solid rgba(0,0,0,.1);
+	border-bottom: 0;
+	border-radius: 6px 6px 0 0;
+	background-clip: padding-box;
+	-webkit-box-shadow: 0 3px 2px #999;
+	-moz-box-shadow: 3px 3px 2px #f999;
+	box-shadow: 0 3px 2px #999;
+}
+.content-header-new .header-inner-new {
+    min-height: 17px;
+    padding: 12px;
+	
+    background-color: rgba(255, 255, 204, 0.9);
+    /*border-bottom: 1px solid #e8e8e8;*/
+   border-radius: 5px 5px 0 0;
+}
+.stream{
+    height:100%;
+    position: relative;
+    margin-left: 0;
+    list-style: none;
+}
+.stream-container{
+    background-repeat:no-repeat;    
+    height:540px;    
+}
+.login{
+    height: 160px;
+    position: relative;
+    margin-left: 0;
+    list-style: none;
+    padding: 180px 40px 0 300px;
+}
+.login-form{
+    padding: 30px;
+    background-color: #ffffff;
+}
+.login-container{
+    background: url(/medicsoft/img/ukmscbgpic.png);
+    background-repeat:no-repeat;    
+    height:100%;    
+}
+.login-main {
+    margin:15px auto;
+    width: 710px;
+    height:540px;
+    border-radius: 6px;
+}
+.footer {
+    margin-right:60px;
+    float:right
+}
+.content-main-home {
+    margin:15px auto;
+    float: left;
+    width: 710px;
+    padding-left: 5px;
+    height:80%;
+    border-radius: 6px;
+}
+.content-main {
+    margin: 45px auto;
+    width: 95%;
+    height:80%;
+    border-radius: 6px;
+}
+#content-main-heading{
+    width:20%;
+    float:left;      
+}
+.content-body{
+    background: #fff;
+    border-left: 1px solid rgba(0,0,0,.1);
+    border-right: 1px solid rgba(0,0,0,.1);
+    background-clip: padding-box;
+}
+.body-inner{
+    position: relative;
+    min-height:550px;
+    padding-top: 9px ;
+    border-bottom: 1px solid #e8e8e8;
+}
+.specfloat{
+    margin-top:-8px;    
+}
+.content-header-info{
+	    border: 1px solid #eee;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 6px 6px 0 0;
+    background-clip: padding-box;
+    border-bottom-width: 0;
+    opacity: .90;
+    min-height: 20px;
+    padding: 12px;
+	background:url(css/jquery-ui-1.10.3.custom/css/custom-theme/images/ui-bg_glass_85_dfeffc_1x400.png) 50% 50% repeat-x;
+    background-color: rgb(233,238,252);
+    border-bottom: 1px solid #e8e8e8;
+    border-radius: 5px 5px 0 0;
+}
+.content-body-info{
+	   background: #fff;
+    border-left: 1px solid rgba(0,0,0,.1);
+    border-right: 1px solid rgba(0,0,0,.1);
+    background-clip: padding-box;
+	position: relative;
+min-height: 250px;
+padding-top: 9px;
+border-bottom: 1px solid #e8e8e8;
+}
+.tableDetail-inner{
+float: left;
+width: 48%;
+margin: 0 5px 10px 5px;
+}
+.tableDetail2{
+margin-left: 1%;
+}
+/*BUTTON CSS*/
+
+#addIcon{ 
+    background-image: url(/medicsoft/img/icon/add.png);
+}
+#editIcon{ 
+    background-image: url(/medicsoft/img/icon/edit.png);
+}
+#deleteIcon{ 
+    background-image: url(/medicsoft/img/icon/delete.png);
+}
+#delete1Icon{ 
+    background-image: url(/medicsoft/img/icon/delete1.png);
+}
+#saveIcon{ 
+    background-image: url(/medicsoft/img/icon/save.png);
+}
+#cancelIcon{ 
+    background-image: url(/medicsoft/img/icon/cancel.png);
+}
+#securityIcon{ 
+    background-image: url(/medicsoft/img/icon/security.png);
+}
+#viewIcon{ 
+    background-image: url(/medicsoft/img/icon/view.png);
+}
+#refreshIcon{ 
+    background-image: url(/medicsoft/img/icon/refresh.png);
+}
+#closeIcon{ 
+    background-image: url(/medicsoft/img/icon/close.png);
+}
+#orderIcon{ 
+    background-image: url(/medicsoft/img/icon/cart.png);
+}
+#listIcon{ 
+    background-image: url(/medicsoft/img/icon/list.png);
+}
+#thickIcon{ 
+    background-image: url(/medicsoft/img/icon/thick.png);
+}
+#wrongIcon{ 
+    background-image: url(/medicsoft/img/icon/wrong.png);
+}
+#searchIcon{ 
+    background-image: url(/medicsoft/img/icon/but_search.png);
+}
+#but_search{
+	width:70px	
+}
+.iconButton{
+	width: 23px;
+    height: 25px;
+	float:left;
+}
+.button:disabled .iconButton{ 
+    background-image: url(/medicsoft/img/icon/noentry.png) !important;
+}
+.button p{ 
+    float:left;
+	margin: 2px 2px 2px 2px;
+}
+#logoutButton{ 
+    margin: 4px 0px 0px 0px;
+    height: 32px;
+    width: 35px;
+    padding: 0px 6px 0px 5px;
+    float: left;
+    font-size: 12px;
+    line-height: 20px;
+    color: #bbb;
+    text-shadow: 0 -1px 1px rgba(0,0,0,.3);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.15);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.15);
+    background-position: 0 -140px;
+    background-color: #2c77ba;
+    background-image: url(/medicsoft/img/panel_bg.png);
+    background-repeat: repeat-x;
+    border: 1px solid  #111;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.button{ 
+    cursor: pointer;
+    width: 80px;
+    float: left;
+    font-size: 12px;
+    line-height: 20px;
+    padding:0;
+}
+.buttonSmall{ 
+	cursor: pointer;
+	width: 27px;
+	height: 27px;
+	float: left;
+	font-size: 12px;
+	line-height: 20px;
+	padding: 2px;
+}
+
+
+#logoutButton:hover {
+    color: #fff;
+    border: 1px solid #ccc;
+}
+#logoutButton:hover, #logoutButton:focus {
+    background-position: 0 -170px;
+}
+#logoutButton:active {
+    -webkit-box-shadow: inset 0 3px 6px rgba(0,0,0,.25);
+    box-shadow: inset 0 3px 6px rgba(0,0,0,.25);
+}
+#logoutButton:active {
+    background-position: 0 -200px;
+}
+#logoutIcon{ 
+    width: 25px;
+    height: 25px;
+    background-image: url(/medicsoft/img/icon/logout.png);
+}
+/*top task bar*/
+#barHolder.slim {
+	z-index:1;
+    position: fixed;
+    width: 100%;
+    height: 40px;
+    background-position: 0 0;
+    background-color: #252525;
+    background-image: url(/medicsoft/img/panel_bg.png);
+    background-repeat: repeat-x;
+}
+.slim #bar.fixed {
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+.slim #bar {
+    position: relative;
+    -webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
+    height: 37px;
+}
+#bar {
+    position: relative;
+    /*background-color: #3b5998;
+    border-bottom: 1px solid #133783;*/
+    position: relative;
+    z-index: 300;
+}
+.fixed, .fixed_always {
+    position: fixed ;
+}
+#pageHeader, #bar #pageHeader {
+    padding-top: 0;
+    width: 80%;
+}
+#pageHeader {
+margin: 0 auto;}
+.clearfix {
+    zoom: 1;
+}
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+#compLogo {
+    float: left;
+    margin-left: -7px;
+    padding-right: 1px;
+    z-index: 5;
+}
+#compLogo a, #compLogo a:hover, #compLogo a:focus, #compLogo a:active{
+    background-image: url(/medicsoft/img/icon/wordms.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    display: block;
+    height: 40px;
+    outline: none;
+    width: 205px;
+    text-indent: -999px;
+    cursor: pointer;
+}
+#compLogo a:hover, #compLogo a:focus, #compLogo a:active {
+background-color: #222;
+}
+.rfloat {
+    float: right;
+}
+#pageNav {
+    margin-right: 1px;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#pageNav .userNav ,#pageNav #navAccount{
+    float: left;
+}
+#pageNav .navItem {
+    color: #d8dfea;
+    display: inline-block;
+    font-weight: bold;
+    height: 31px;
+    line-height: 29px;
+    position: relative;
+    text-decoration: none;
+    vertical-align: top;
+}
+#navAccount {
+    position: relative;
+}
+#userNav{
+    float: left;    
+}
+.topbar-divider {
+    float: left;
+    margin: 0 10px;
+}
+.topbar-divider {
+    background-position: -240px -50px;
+    width: 2px;
+    height: 32px;
+}
+i, .icon {
+    display: inline-block;
+    vertical-align: text-top;
+    background-image: url(/medicsoft/img/panel_icon.png);
+    background-repeat: no-repeat;
+}
+#logoutNav{
+    float: left;
+    border-radius: 5px;
+    background-position: 0 -100px;
+    background-image: url(/medicsoft/img/icon/logout.png);
+    background-repeat: repeat-x;
+}
+#date_time{
+    position: absolute;
+    color:#bbb;
+}
+#pagetitle {
+z-index: 1;
+padding: 3px 10px;
+position: absolute;
+border: solid thin #CCCCCC;
+font-size: 30px;
+text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
+top: 40px;
+left: 150px;
+-webkit-box-shadow: 0px 11px 11px rgba(46, 50, 50, 0.72);
+-moz-box-shadow: 0px 11px 11px rgba(46, 50, 50, 0.72);
+box-shadow: 0px 11px 11px rgba(46, 50, 50, 0.72);
+opacity: 0.8;
+-moz-border-radius-bottomleft: 11px;
+-webkit-border-bottom-left-radius: 11px;
+border-bottom-left-radius: 11px;
+-moz-border-radius-bottomright: 11px;
+-webkit-border-bottom-right-radius: 11px;
+border-bottom-right-radius: 11px;
+background: rgb(223, 158, 65);
+background: -moz-linear-gradient(110deg, rgb(223, 158, 65) 19%, rgb(128, 188, 209) 70%);
+background: -webkit-linear-gradient(110deg, rgb(223, 158, 65) 19%, rgb(128, 188, 209) 70%);
+background: -o-linear-gradient(110deg, rgb(223, 158, 65) 19%, rgb(128, 188, 209) 70%);
+background: -ms-linear-gradient(110deg, rgb(223, 158, 65) 19%, rgb(128, 188, 209) 70%);
+background: linear-gradient(200deg, rgb(223, 158, 65) 19%, rgb(128, 188, 209) 70%);
+}
+.jqGridField{
+	border: 1px solid #d19405;
+background: #fece2f url(/medicsoft/css/jquery-ui-themes-1.10.3/sunny/images/ui-bg_gloss-wave_60_fece2f_500x100.png) 50% 50% repeat-x;
+font-weight: bold;
+color: #4c3000;
+padding: 5px 0 0 6px;
+height: 20px;
+}

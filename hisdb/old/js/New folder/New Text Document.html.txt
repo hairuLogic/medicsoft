@@ -1,0 +1,5 @@
+<html>
+<body>
+<a src='../../main.php'>asd</a>
+</body>
+</html>
