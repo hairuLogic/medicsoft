@@ -1,0 +1,65 @@
+<?php
+include_once('../../sschecker.php');
+include_once('../../connect_db.php');
+$table='queue';
+$page = $_GET['page']; // get the requested page
+$limit = $_GET['rows']; // get how many rows we want to have into the grid
+$sidx = $_GET['sidx']; // get index row - i.e. user click to sort
+$sord = $_GET['sord']; // get the direction
+$prmid = $_GET['id'];
+if(!$sidx) $sidx =1;
+
+$result = mysql_query("SELECT COUNT(*) AS count FROM $table where attndoctor='$prmid'");
+$row = mysql_fetch_array($result,MYSQL_ASSOC);
+$count = $row['count'];
+
+if( $count >0 ) {
+	$total_pages = ceil($count/$limit);
+} else {
+	$total_pages = 0;
+}
+if ($page > $total_pages) $page=$total_pages;
+$start = $limit*$page - $limit; 
+
+$SQL = "select queueno,reg_time,name,mrn,doctor.doctorname from $table "; 
+$SQL.= "left join doctor on doctor.doctorcode = $table.attndoctor ";
+$SQL.= "where $table.attndoctor='$prmid' ORDER BY $sidx $sord LIMIT $start , $limit";
+
+$result = mysql_query($SQL) or die("Couldnt execute query.".mysql_error());
+
+if ( stristr($_SERVER["HTTP_ACCEPT"],"application/xhtml+xml") ) {
+header("Content-type: application/xhtml+xml;charset=utf-8"); } else {
+header("Content-type: text/xml;charset=utf-8");
+}
+
+$et = ">";
+
+function yesno($data){
+	if($data=='1')return 'Yes';
+	else return 'No';
+}
+function chgdate($date){
+	$tok=explode('-',$date);
+	$newrow=$tok[2].'-'.$tok[1].'-'.$tok[0];
+	return $newrow;
+}
+
+echo "<?xml version='1.0' encoding='utf-8'?$et\n";
+echo "<rows>";
+echo "<page>".$page."</page>";
+echo "<total>".$total_pages."</total>";
+echo "<records>".$count."</records>";
+// be sure to put text data in CDATA
+$i = 0;
+while($row = mysql_fetch_array($result,MYSQL_NUM)) {
+	$i = $i+1;
+	echo "<row id='".$i."'>";
+	echo "<cell><a href=''><![CDATA[". $row[0]."]]></a></cell>";
+	echo "<cell><![CDATA[". $row[1]."]]></cell>";	
+	echo "<cell><![CDATA[". $row[2]."]]></cell>";	
+	echo "<cell><![CDATA[". $row[3]."]]></cell>";
+	echo "<cell><![CDATA[". $row[4]."]]></cell>";
+	echo "</row>";
+}
+echo "</rows>";	
+?>
