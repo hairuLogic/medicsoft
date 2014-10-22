@@ -19,29 +19,45 @@
 <script src="../js/jquery.mb.browser.min.js"></script>
 <script src="../../script/date_time.js"></script>
 <script>
-function opennotes(){
+function opennotes(id){
 var uri = "notes.php";
+    uri += "?doc=" + id; 
 document.forms[0].action = uri;
 document.forms[0].method = "post";
 document.forms[0].submit();
 }
 
+function Link(id) {
+
+    var row = id.split("=");
+    var row_ID = row[1];
+	var doccode= $("#grid").getCell(row_ID, 'Doctor_Code');
+	var uri = "notes.php?id=" + doccode;
+    document.forms[0].action = uri;
+    document.forms[0].method = "post";
+    document.forms[0].submit();
+}
+
+					
 $(function(){
            $("#grid").jqGrid({
-				url:'test1231.php',
+				url:'data/doctorlist.php',
 				datatype: "xml",
 				height: 250,
-				width:400,
 				colNames: ['Doctor Code', 'Doctor Name'],
-				colModel: [
-					{name: 'Doctor Code',index: 'Doctor Code'},
-					{name: 'Doctor Name',index: 'Doctor Name'},	
-					
-					
-				],
+				colModel: [{ name: 'Doctor_Code', index: 'Doctor_Code',
+				             width: 100,
+							 editable: false,
+							 sortable: false,
+							 formatter: 'showlink',
+							 formatoptions: { baseLinkUrl: 'javascript:', showAction: "Link('", addParam: "');"} },
+                           { name: 'Doctor_Name', index: 'Doctor_Name', 
+						     width: 400, 
+							 editable: false,
+							 sortable: false }],
 				altRows: true,
 				altclass: 'zebrabiru',
-				multiselect: true,
+				multiselect: false,
 				autowidth: true,
 				rowNum:10,
 				rowList:[10,20,30],
@@ -99,9 +115,6 @@ $(function(){
 <form>
 <span id="pagetitle">Specialist Notes</span>
 <div id="formmenu">
-      <div id="menu" >
-      <input type="button" value="Notes" class="orgbut" onclick="opennotes()">     
-    </div>
      <div class="alongdiv">  
     <div class="bodydiv">
         <table>
